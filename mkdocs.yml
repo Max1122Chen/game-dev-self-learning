@@ -1,1 +1,5 @@
-site_name: My Docs
+site_name: game-dev-self-learning
+site_url: http://game-dev-self-learning
+site_author: Max1122Chen
+theme:
+  name material
