@@ -12,12 +12,24 @@ theme:
     - 404.html
 
   features:
+    - header.autohide
     
-
+nav:
+  - 欢迎: "index.md"
+  - 怎样从这里开始学习？: "怎样从这里开始学习？.md"
+  - 游戏设计理论: 
+  - 游戏开发中的计算机科学: 
+    - 计算机科学基础学习指路——《CS自学指南》: "计算机科学基础学习指路——《CS自学指南》.md"
+  - 游戏开发中的美术: 
+  - 游戏开发中的音乐: 
+  - 游戏开发中的文学: 
+  - 游戏引擎使用:
+    - Unity:
+    - Unreal Engine:
+    - Godot:
 
 plugins:
   - search
-  - awesome-nav
 
 watch: 
   - ./
