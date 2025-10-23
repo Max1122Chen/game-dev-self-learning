@@ -1,2 +1,2 @@
 # game-dev-self-learning
-This is a repo about some methods, resources and suggestions for learing game development by yourself.
+这是一个关于自学游戏开发的仓库
