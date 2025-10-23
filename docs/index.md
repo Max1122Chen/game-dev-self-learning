@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# 欢迎
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+你好，这是一个关于自学游戏开发的指南，实际上这应该更像是一个**“平台”**而非“指南”，旨在促进想要/正在/曾经从事游戏开发的人们交流分享学习游戏开发的途径、方法、资源以及经验，希望能为热爱游戏开发的各位起到一个“抛砖引玉”的作用，吸引更多游戏开发者分享关于游戏开发的专业知识，为正在学习游戏开发的后来者提供一点帮助，共同成为游戏艺术史的创造者。
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
-## Project layout
+目前这只是一个极其简陋的版本，等待后续完善。
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+
+
+
+
+TODO：
+
+1. 完善“欢迎”页
+2. 增加各领域知识

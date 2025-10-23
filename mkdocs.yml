@@ -1,5 +1,23 @@
 site_name: game-dev-self-learning
 site_url: http://game-dev-self-learning
 site_author: Max1122Chen
+
+repo_name: game-dev-self-learning
+repo_url: https://github.com/Max1122Chen/game-dev-self-learning/
+
 theme:
-  name material
+  name: material
+  language: zh
+  static_templates:
+    - 404.html
+
+  features:
+    
+
+
+plugins:
+  - search
+  - awesome-nav
+
+watch: 
+  - ./
