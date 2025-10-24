@@ -1,5 +1,5 @@
 site_name: game-dev-self-learning
-site_url: http://game-dev-self-learning
+site_url: http://www.game-dev-self-learning.wiki
 site_author: Max1122Chen
 
 repo_name: game-dev-self-learning
@@ -13,21 +13,50 @@ theme:
 
   features:
     - header.autohide
+    - navigation.instant
+
+  palette:
+    primary: orange
+    accent: indigo
+
     
 nav:
     - 欢迎: "index.md"
     - 怎样从这里开始学习？: "怎样从这里开始学习？.md"
-    - 游戏设计理论: "游戏设计理论/placeholder.md"
+    - 各种各样的学习建议:
+      - "各种各样的学习建议/MaxChen's游戏开发技能树加点推荐.md"
+    - 基础工具: "placeholder.md"
+    - 游戏设计理论: 
+      - 《游戏设计艺术》: "游戏设计理论/《游戏设计艺术》.md" 
     - 游戏开发中的数学: "游戏开发中的数学/placeholder.md"
     - 游戏开发中的计算机科学: 
       - 计算机科学基础学习指路——《CS自学指南》: "游戏开发中的计算机科学/计算机科学基础学习指路——《CS自学指南》.md"
+      - 高级语言基础: "placeholder.md"
+      - 设计模式: "placeholder.md"
+      - 计算机图形学: 
+        - GAMES101-现代计算机图形学入门: "游戏开发中的计算机科学/计算机图形学/GAMES101-现代计算机图形学入门-"
     - 游戏开发中的美术: "游戏开发中的美术/placeholder.md"
     - 游戏开发中的音乐: "游戏开发中的音乐/placeholder.md"
     - 游戏开发中的文学: "游戏开发中的文学/placeholder.md"
-    - 游戏引擎使用:
-      - Unity: "游戏引擎使用/Unity/placeholder.md"
-      - Unreal Engine: "游戏引擎使用/Unreal Engine/虚幻引擎入门.md"
-      - Godot: "游戏引擎使用/Godot/placeholder.md"
+    - 游戏引擎:
+      - Unity: "游戏引擎/Unity/placeholder.md"
+      - Unreal Engine: 
+        - 虚幻引擎入门级教程: 
+          - Unreal Engine 5 C++ Game Development: "游戏引擎/Unreal Engine/虚幻引擎入门级教程/Unreal Engine 5 C++ Game Development.md"
+      - Godot: "游戏引擎/Godot/placeholder.md"
+    - 给贡献者: 
+      - 注意事项: "给贡献者/注意事项.md"
+      - 知识推荐模板: "给贡献者/知识推荐模板.md"
+    
+
+extra:
+  disqus: <shortname>
+
+markdown_extensions:
+  - meta
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 plugins:
   - search

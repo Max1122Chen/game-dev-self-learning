@@ -4,6 +4,10 @@
 
 
 
+本指南的建立深受[《CS自学指南》](https://csdiy.wiki/)的启发，参考了其使用的网站框架，在此谨向《CS自学指南》的作者[PKUFlyingPig](https://github.com/PKUFlyingPig)以及其他贡献者表示衷心的感谢。
+
+
+
 目前这只是一个极其简陋的版本，等待后续完善。
 
 
