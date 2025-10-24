@@ -1,4 +1,4 @@
-# Unreal Engine 5 C++ Game Development
+# 🏫Unreal Engine 5 C++ Game Development
 
 页面贡献者：[Max1122Chen](https://github.com/Max1122Chen)
 
@@ -10,9 +10,9 @@
 - 主讲老师/作者：[Ben Tristem](https://www.udemy.com/user/bentristem/)，[GameDev.tv Team](https://www.udemy.com/user/gamedevtv/)，[Kaan Alpar](https://www.udemy.com/user/kaan-alpar-22/)
 - 前置科技：C++面向对象程序设计基础
 - 级别：入门级
-- 难度：⭐⭐ 
+- 难度：⭐⭐(多一颗给UE C++) 
 - 面向对象：虚幻引擎游戏开发工程师、设计师、艺术家
-- 所需工具：Unreal Engine 5.x, Visual Studio, JetBrains Rider（非必须）
+- 所需工具：跟随课程下载
 
 笔者本人并没有从这个课程开始学习，但考虑到这个课程常常受到其他虚幻引擎学习者的推荐，并且课程本身在Udemy上受到较高评价，笔者将其列为Unreal Engine学习入门级教程之一。
 

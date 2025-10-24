@@ -17,7 +17,6 @@ theme:
 
   palette:
     primary: orange
-    accent: indigo
 
     
 nav:
@@ -39,14 +38,23 @@ nav:
     - 游戏开发中的音乐: "游戏开发中的音乐/placeholder.md"
     - 游戏开发中的文学: "游戏开发中的文学/placeholder.md"
     - 游戏引擎:
+      - 游戏引擎架构: 
+        - GAMES104-现代游戏引擎：从入门到实践: "游戏引擎/游戏引擎架构/GAMES104-现代游戏引擎：从入门到实践.md"
       - Unity: "游戏引擎/Unity/placeholder.md"
       - Unreal Engine: 
-        - 虚幻引擎入门级教程: 
-          - Unreal Engine 5 C++ Game Development: "游戏引擎/Unreal Engine/虚幻引擎入门级教程/Unreal Engine 5 C++ Game Development.md"
+        - 虚幻引擎官方文档: "游戏引擎/Unreal Engine/虚幻引擎官方文档.md"
+        - 虚幻引擎入门: 
+          - Unreal Engine 5 C++ Game Development: "游戏引擎/Unreal Engine/虚幻引擎入门/Unreal Engine 5 C++ Game Development.md"
+          - 【虚幻4】UE4初学者系列教程合集-全中文新手入门教程: "游戏引擎/Unreal Engine/虚幻引擎入门/【虚幻4】UE4初学者系列教程合集-全中文新手入门教程.md"
+        - 虚幻引擎进阶:
+          - 虚幻Gameplay架构:
+            - 《InsideUE4》GamePlay架构: "游戏引擎/Unreal Engine/虚幻引擎进阶/虚幻Gameplay架构/《InsideUE4》GamePlay架构.md"
+          - GameplayAbilitySystem: "placeholder.md"
       - Godot: "游戏引擎/Godot/placeholder.md"
     - 给贡献者: 
-      - 注意事项: "给贡献者/注意事项.md"
+      - 贡献资源的注意事项: "给贡献者/贡献资源的注意事项.md"
       - 知识推荐模板: "给贡献者/知识推荐模板.md"
+      - 文章编写模板: "placeholder.md"
     
 
 extra:
