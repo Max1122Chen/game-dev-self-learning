@@ -14,9 +14,11 @@ theme:
   features:
     - header.autohide
     - navigation.instant
+    - search.hightlight
 
   palette:
     primary: orange
+    accent: indigo
 
     
 nav:
@@ -24,23 +26,29 @@ nav:
     - 怎样从这里开始学习？: "怎样从这里开始学习？.md"
     - 各种各样的学习建议:
       - "各种各样的学习建议/MaxChen's游戏开发技能树加点推荐.md"
-    - 基础工具: "placeholder.md"
     - 游戏设计理论: 
       - 《游戏设计艺术》: "游戏设计理论/《游戏设计艺术》.md" 
+      - 《体验引擎：游戏涉及全景探秘》: "游戏设计理论/《体验引擎：游戏设计全景探秘》.md"
     - 游戏开发中的数学: "游戏开发中的数学/placeholder.md"
     - 游戏开发中的计算机科学: 
       - 计算机科学基础学习指路——《CS自学指南》: "游戏开发中的计算机科学/计算机科学基础学习指路——《CS自学指南》.md"
       - 高级语言基础: "placeholder.md"
       - 设计模式: "placeholder.md"
       - 计算机图形学: 
-        - GAMES101-现代计算机图形学入门: "游戏开发中的计算机科学/计算机图形学/GAMES101-现代计算机图形学入门-"
-    - 游戏开发中的美术: "游戏开发中的美术/placeholder.md"
+        - GAMES101-现代计算机图形学入门: "游戏开发中的计算机科学/计算机图形学/GAMES101-现代计算机图形学入门.md"
+    - 游戏开发中的美术:
+      - 3D建模: 
+        - Blender: 
+          - 【Kurt】Blender零基础入门教程 | Blender中文区新手必刷教程: "游戏开发中的美术/3D建模/Blender/【Kurt】Blender零基础入门教程 Blender中文区新手必刷教程.md"
+          - Blender 2.9-3.4黑铁骑士Ⅱ系统零基础入门教程: "游戏开发中的美术/3D建模/Blender/Blender 2.9-3.4黑铁骑士Ⅱ系统零基础入门教程.md"
     - 游戏开发中的音乐: "游戏开发中的音乐/placeholder.md"
     - 游戏开发中的文学: "游戏开发中的文学/placeholder.md"
     - 游戏引擎:
       - 游戏引擎架构: 
         - GAMES104-现代游戏引擎：从入门到实践: "游戏引擎/游戏引擎架构/GAMES104-现代游戏引擎：从入门到实践.md"
-      - Unity: "游戏引擎/Unity/placeholder.md"
+      - Unity: 
+        - Unity入门:
+          - Complete C# Unity 3D Game Development in Unity 6: "游戏引擎/Unity/Unity入门/Complete C# Unity 3D Game Development in Unity 6.md"
       - Unreal Engine: 
         - 虚幻引擎官方文档: "游戏引擎/Unreal Engine/虚幻引擎官方文档.md"
         - 虚幻引擎入门: 
@@ -52,7 +60,7 @@ nav:
           - GameplayAbilitySystem: "placeholder.md"
       - Godot: "游戏引擎/Godot/placeholder.md"
     - 给贡献者: 
-      - 贡献资源的注意事项: "给贡献者/贡献资源的注意事项.md"
+      - 如何为本指南的建设做出贡献？: "给贡献者/如何为本指南的建设做出贡献？.md"
       - 知识推荐模板: "给贡献者/知识推荐模板.md"
       - 文章编写模板: "placeholder.md"
     

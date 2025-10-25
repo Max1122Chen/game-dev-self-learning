@@ -8,7 +8,7 @@
 
 - 类型：系列文章
 - 作者：[大钊 - 知乎](https://www.zhihu.com/people/fjz13)
-- 前置科技：虚幻引擎入门，C++面向对象程序设计，[游戏引擎架构](../../../游戏引擎架构)
+- 前置科技：虚幻引擎入门，C++面向对象程序设计，游戏引擎架构
 - 级别：进阶级
 - 难度：⭐⭐ 
 - 面向对象：虚幻引擎游戏开发工程师
@@ -18,9 +18,9 @@
 
 该系列文章所涉及的知识是深入学习UE所必须掌握的，理解了UE的Gameplay架构，才能理解UE这个”世界“的”法则“和物质的组成形式。
 
-> [!NOTE]
->
-> 如果你不能理解什么是游戏的Gameplay系统，指路：[03.如何构建游戏世界 | GAMES104-现代游戏引擎：从入门到实践](https://www.bilibili.com/video/BV1YY4y1p74P?spm_id_from=333.788.videopod.sections&vd_source=25800c8dd353f669fe131bd34020970c)
+
+!!! note
+    如果你不清楚什么是游戏的Gameplay系统，指路：[03.如何构建游戏世界 | GAMES104-现代游戏引擎：从入门到实践](https://www.bilibili.com/video/BV1YY4y1p74P?spm_id_from=333.788.videopod.sections&vd_source=25800c8dd353f669fe131bd34020970c)
 
 ## 相关资料
 
