@@ -1,0 +1,1820 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Max1122Chen">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Inventory System - game-dev-self-learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inventory-system" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="game-dev-self-learning" class="md-header__button md-logo" aria-label="game-dev-self-learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            game-dev-self-learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inventory System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Max1122Chen/game-dev-self-learning/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    game-dev-self-learning
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="game-dev-self-learning" class="md-nav__button md-logo" aria-label="game-dev-self-learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    game-dev-self-learning
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Max1122Chen/game-dev-self-learning/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    game-dev-self-learning
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    欢迎
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%80%8E%E6%A0%B7%E4%BB%8E%E8%BF%99%E9%87%8C%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%EF%BC%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    怎样从这里开始学习？
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    各种各样的学习建议
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            各种各样的学习建议
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%90%84%E7%A7%8D%E5%90%84%E6%A0%B7%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/MaxChen%27s%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%8A%80%E8%83%BD%E6%A0%91%E5%8A%A0%E7%82%B9%E6%8E%A8%E8%8D%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💡MaxChen's游戏开发技能树加点推荐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    游戏设计理论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            游戏设计理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA/%E3%80%8A%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E8%89%BA%E6%9C%AF%E3%80%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    《游戏设计艺术》
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA/%E3%80%8A%E4%BD%93%E9%AA%8C%E5%BC%95%E6%93%8E%EF%BC%9A%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E5%85%A8%E6%99%AF%E6%8E%A2%E7%A7%98%E3%80%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    《体验引擎：游戏涉及全景探秘》
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/placeholder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游戏开发中的数学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    游戏开发中的计算机科学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            游戏开发中的计算机科学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E8%B7%AF%E2%80%94%E2%80%94%E3%80%8ACS%E8%87%AA%E5%AD%A6%E6%8C%87%E5%8D%97%E3%80%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机科学基础学习指路——《CS自学指南》
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../placeholder.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    高级语言基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../placeholder.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    设计模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计算机图形学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            计算机图形学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/GAMES101-%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GAMES101-现代计算机图形学入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    游戏开发中的美术
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            游戏开发中的美术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    3D建模
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            3D建模
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_1" id="__nav_7_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blender
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Blender
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%BE%8E%E6%9C%AF/3D%E5%BB%BA%E6%A8%A1/Blender/%E3%80%90Kurt%E3%80%91Blender%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%20Blender%E4%B8%AD%E6%96%87%E5%8C%BA%E6%96%B0%E6%89%8B%E5%BF%85%E5%88%B7%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    【Kurt】Blender零基础入门教程 | Blender中文区新手必刷教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%BE%8E%E6%9C%AF/3D%E5%BB%BA%E6%A8%A1/Blender/Blender%202.9-3.4%E9%BB%91%E9%93%81%E9%AA%91%E5%A3%AB%E2%85%A1%E7%B3%BB%E7%BB%9F%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blender 2.9-3.4黑铁骑士Ⅱ系统零基础入门教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%9F%B3%E4%B9%90/placeholder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游戏开发中的音乐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%A6/placeholder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游戏开发中的文学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    游戏引擎
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            游戏引擎
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    游戏引擎架构
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            游戏引擎架构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E6%9E%B6%E6%9E%84/GAMES104-%E7%8E%B0%E4%BB%A3%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GAMES104-现代游戏引擎：从入门到实践
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2_1" id="__nav_10_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unity入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unity入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/Unity/Unity%E5%85%A5%E9%97%A8/Complete%20C%23%20Unity%203D%20Game%20Development%20in%20Unity%206/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Complete C# Unity 3D Game Development in Unity 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Unreal Engine
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unreal Engine
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/Unreal%20Engine/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虚幻引擎官方文档
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3_2" id="__nav_10_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    虚幻引擎入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            虚幻引擎入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/Unreal%20Engine/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%85%A5%E9%97%A8/Unreal%20Engine%205%20C%2B%2B%20Game%20Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unreal Engine 5 C++ Game Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/Unreal%20Engine/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E5%85%A5%E9%97%A8/%E3%80%90%E8%99%9A%E5%B9%BB4%E3%80%91UE4%E5%88%9D%E5%AD%A6%E8%80%85%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86-%E5%85%A8%E4%B8%AD%E6%96%87%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    【虚幻4】UE4初学者系列教程合集-全中文新手入门教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3_3" id="__nav_10_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    虚幻引擎进阶
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            虚幻引擎进阶
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3_3_1" id="__nav_10_3_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    虚幻Gameplay架构
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_10_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            虚幻Gameplay架构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/Unreal%20Engine/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E%E8%BF%9B%E9%98%B6/%E8%99%9A%E5%B9%BBGameplay%E6%9E%B6%E6%9E%84/%E3%80%8AInsideUE4%E3%80%8BGamePlay%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    《InsideUE4》GamePlay架构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../placeholder.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GameplayAbilitySystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/Godot/placeholder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    给贡献者
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            给贡献者
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%99%E8%B4%A1%E7%8C%AE%E8%80%85/%E5%A6%82%E4%BD%95%E4%B8%BA%E6%9C%AC%E6%8C%87%E5%8D%97%E7%9A%84%E5%BB%BA%E8%AE%BE%E5%81%9A%E5%87%BA%E8%B4%A1%E7%8C%AE%EF%BC%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    如何为本指南的建设做出贡献？
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%99%E8%B4%A1%E7%8C%AE%E8%80%85/%E7%9F%A5%E8%AF%86%E6%8E%A8%E8%8D%90%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    知识推荐模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../placeholder.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    文章编写模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      正文
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="正文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      游戏物品
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="游戏物品">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      游戏物品是什么？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      游戏物品定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      游戏物品实例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="inventory-system">Inventory System</h1>
+<p>页面贡献者：<a href="https://github.com/Max1122Chen">Max1122Chen</a></p>
+<p>更新时间：2025.10.25</p>
+<h2 id="_1">简介</h2>
+<ul>
+<li>类型：个人撰写文章</li>
+<li>作者：<a href="https://github.com/Max1122Chen">Max1122Chen</a></li>
+<li>前置科技：C++面向对象程序设计</li>
+<li>级别：入门级</li>
+<li>难度：⭐ </li>
+<li>面向对象：游戏开发工程师，设计师</li>
+</ul>
+<h2 id="_2">正文</h2>
+<p>在现代电子游戏中，让玩家能够在游玩过程中获得一些“物品“，是非常常见的一种游戏玩法。例如可以获得武器、防具、消耗品、素材、可放置物品等等，甚至游戏中的货币也可以纳入这一范畴（取决于具体的游戏如何对待它）。因此为游戏中的”物品“和”物品栏“设计一个灵活、高度可扩展、易于管理的游戏系统是很有必要的，在下文我们能够进一步说明这种必要性。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>需要澄清的是，本文所讨论的“游戏物品并非一切出现在游戏中的具有实体的事物，本文所指的”游戏物品“可以和”物品栏“”背包“”储存箱“等容器概念形成上下文一起理解，本文所想讨论的”游戏物品“是那些被认为常常可以被存放于”物品栏“这种容器中的事物。</p>
+</div>
+<h3 id="_3">游戏物品</h3>
+<p>”游戏物品“蕴含了几个功能：</p>
+<ol>
+<li>构建游戏的”游戏性“</li>
+</ol>
+<p>武器、防具、饰品、消耗品等物品与游戏的战斗系统有关，它们服务于战斗玩法的构建；素材可能与游戏的数值养成系统、制造合成系统等有关；可放置物品可能和游戏的建造创造玩法有关……</p>
+<p>总之，游戏物品往往对其他游戏性系统的构建起到不可或缺的支撑作用。</p>
+<ol>
+<li>服务于游戏的故事叙述</li>
+</ol>
+<p>有时候，游戏物品还会承担叙事的工具，它对叙事的贡献既可能是显性的也可能是隐性的。显性体现在物品的文本性描述。隐性体现在物品本身的属性，例如外形、功能、社会历史意义；以及物品出现的时间与空间。</p>
+<p>举一个例子来说，《黑暗之魂》系列格外热衷于把叙事的任务交给游戏中的物品，且既重视物品文本描述的显性叙事，也考究物品出现的时间空间，构建出了富有特色的碎片性叙事。</p>
+<ol>
+<li>为玩家提供“收获感”和奖励</li>
+</ol>
+<p>一般来说，极少情况下获得一件物品对于玩家来说是一件坏事。只有设计者故意将物品设计成一种诅咒性的不祥之物，才容易引发玩家的厌弃。</p>
+<p>通常玩家获得一件物品，都能够欣然接受它，而如果它能够对玩家的进一步游玩有较大的帮助的话，玩家便会更加高兴。</p>
+<p>除此之外，物品也常常作为游戏进程中通用的奖励手段，来给予玩家持续的正反馈。</p>
+<p>游戏物品在现代电子游戏中有如此重要的作用，值得我们仔细思考如何构建一个灵活、健全、可扩展的“游戏物品系统”。</p>
+<h4 id="_4">游戏物品是什么？</h4>
+<p>“物品”不就是“物品”吗？</p>
+<p>先来举几个例子，来帮助我们分析：</p>
+<p>在《Minecraft》中， 我们每时每刻都在和其中的游戏物品交互：玩家在游戏世界中见到的大部分的东西都是游戏物品，因为世界上几乎每一个方块都可以被玩家采集并放进玩家的背包中。</p>
+<p>《Minecraft》中的游戏物品主要展现出了这些属性与行为：</p>
+<ul>
+<li>玩家能够采集世界中的方块，它们可能会以游戏物品的形式掉落</li>
+<li>玩家能够以方块形式采集到的物品，还能够再放回到世界中。</li>
+<li>玩家能够通过各种制造台把一些游戏物品或“合成”，或“转变”成别的游戏物品。</li>
+<li>玩家可以手持武器作战、身穿装备防御、使用消耗品获得增减益。</li>
+</ul>
+<p>我们不难发现，我们提取出来的游戏物品的属性与行为之间反映出课显著的”特性“，例如不是所有物品都能作为武器，不是所有物品都能够作为方块放回世界中。</p>
+<p>这说明了这些属性并非游戏物品的”共性“，而是某个特定种类的游戏物品所具有的“共性”，也能够看出“游戏物品”是一个抽象的高层概念。</p>
+<h4 id="_5">游戏物品定义</h4>
+<p>要定义”游戏物品“，关键在于抽象”游戏物品“所应该具有的属性和行为。那么，首先，让我们先来探索共性，有哪些属性和行为是所有游戏物品所<strong>共有的</strong>？</p>
+<p><strong>必要属性：</strong></p>
+<ol>
+<li>物品ID——游戏物品的唯一标识符，比“名字”更容易进行比较</li>
+<li>物品名字——一般来说游戏中的物品都需要</li>
+<li>物品类型——是武器？是消耗品？……</li>
+<li>物品描述——可以没有这条属性，取决于游戏的需要</li>
+<li>物品实体——可能包含以下事项</li>
+<li>物品的“图标”——游戏物品的一个指代</li>
+<li>物品的模型——游戏物品在游戏世界中的视觉表现</li>
+</ol>
+<p><strong>次要属性（取决于游戏需要）：</strong></p>
+<ol>
+<li>物品等级</li>
+<li>物品合成配方</li>
+<li>……</li>
+</ol>
+<p>我们可以发现，我们现在把游戏物品描述称为了一种<strong>“概念”</strong>，而并非一种“实体”。某种角度上来说，对于游戏世界中的物品，是先有设计师设计物品的”意识“，才有游戏内实现的物品的”物质“。</p>
+<p>我们暂时没有关心单独的一个游戏物品，并没有关心一个游戏物品在世界中的空间位置、数量等等属性。这是因为游戏物品的实体，都是游戏物品的概念的一个实例。游戏物品的“名字””描述“等属性是该种游戏物品所共有的，而空间位置、数量等是某个游戏物品实例所独有的。</p>
+<p>而一种“概念”，并不需要实现”被获取“这种行为，在后面我们能够看出来。</p>
+<p>因此，我们可以将游戏物品分成”定义“（也就是”概念“的部分）和“实例”的部分，从上述的分析中，你应该能够看出它们并非类和对象的关系，而是两个类，物品实例类（ItemInstance）的一个对象引用了物品定义类（ItemDefinition）的一个对象。</p>
+<p>现在我们终于可以用代码来简单描述一下”游戏物品定义“了：</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ItemDefinition</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">itemID</span><span class="p">;</span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">itemName</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ItemType</span><span class="w"> </span><span class="n">itemType</span><span class="p">;</span><span class="w"> </span><span class="c1">//枚举或其他类似于枚举的类</span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">itemDescription</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Image</span><span class="o">*</span><span class="w"> </span><span class="n">itemIcon</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Model</span><span class="o">*</span><span class="w"> </span><span class="n">itemModel</span><span class="p">;</span><span class="w"> </span><span class="c1">//物品的模型不仅仅是一个网格，可能还包含了材质等等</span>
+
+<span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//...some behaviours</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>那么武器、防具、消耗品等等细分的物品，它们同样先具有ID，名字等游戏物品共有的属性，自然可以采用继承的方式来扩展物品定义，实现WeaponItemDefinition, ArmorItemDefinition, ConsumableItemDefinition等子类，增加其特有的属性和行为。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// For example</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WeaponItemDefinition</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ItemDefinition</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//Possible Properties</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">damage</span><span class="p">;</span>
+<span class="w">    </span><span class="n">DamageType</span><span class="w"> </span><span class="n">damageType</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//...</span>
+
+<span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//Possible Behaviors</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">equipped</span><span class="p">();</span><span class="w"> </span><span class="c1">//be equipped by somebody</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ArmorItemDefinition</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ItemDefinition</span>
+<span class="p">{</span>
+<span class="w">     </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//Possible Properties</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">defense</span><span class="p">;</span>
+<span class="w">    </span><span class="n">DefenseType</span><span class="w"> </span><span class="n">defenseType</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//...</span>
+
+<span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//Possible Behaviors</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">equipped</span><span class="p">();</span><span class="w"> </span><span class="c1">//be equipped by somebody</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ConsumableItemDefinition</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ItemDefinition</span>
+<span class="p">{</span>
+<span class="w">     </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//Possible Properties</span>
+<span class="w">    </span><span class="n">GameplayEffect</span><span class="w"> </span><span class="n">effect</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//...</span>
+
+<span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">//Possible Behaviors</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">consumed</span><span class="p">();</span><span class="w"> </span><span class="c1">//be consumed by somebody</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+<span class="c1">//...</span>
+</code></pre></div>
+<p>实际上，武器，防具等具有更多复杂行为的物品的Definition往往不会如此简单，甚至有必要把它们单独建立一个与ItemDefinition独立的EquippementDefinition。对于玩家而言，他们只需要关心Equipment的属性、效果即可。但对于开发者来说，武器装备怎样穿戴在角色身上、穿戴在角色的什么位置上、播放什么攻击动画等等这些信息也是需要在EquipmentDefinition中体现的。举一反三，其他具有更特殊的行为的游戏物品也可能需要单独定义Definition，但是我们都可以遵循用Definition描述物品，用Instance实例化物品的逻辑。</p>
+<h4 id="_6">游戏物品实例</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "search.hightlight"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
